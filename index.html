@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="msapplication-TileImage" content="/assets/favicon.png">
+    <title>Animation-player</title>
+    <link data-prerender="keep" rel="icon" type="image/png" sizes="16x16" href="./assets/favicon.png">
+    <link rel="stylesheet" href="./pallete/normalize.css">
+    <link rel="stylesheet" href="./pallete/style.css">
+    <script src="./pallete/jquery-3.4.0.min.js" type="text/javascript"></script>
+</head>
+<body>
+    <header>
+        <div id="menu" class="menu-button header">
+            <div class="menu-button-hamburger">
+                <div class="hamburger"></div>
+                <div class="hamburger"></div>
+                <div class="hamburger"></div>
+            </div>
+        </div>
+        <div class="headline header"><h1>CodeJam - Pallete</h1></div>
+        <div id="alter-menu" class="menu-button header">
+            <div class="menu-button-kebab">
+                <div class="kebab"></div>
+                <div class="kebab"></div>
+                <div class="kebab"></div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section class="left">
+            <div class="tools-box">
+                <div class="tools">
+                    <div class="paints">
+                        <div id="bucket" class="bucket tool"><div class="buck icon"></div></div>
+                        <div id="pippete" class="pippete tool"><div class="pip icon"></div></div>
+                    </div> 
+                    <div class="movements">
+                        <div id="move" class="move tool"><div class="mov icon"></div></div>
+                        <div id="transform" class="transform tool"><div class="trns icon"></div></div>
+                    </div>
+                </div>
+            </div>
+            <div class="frames-box">
+                <div id="frames" class="frames">
+                    <div id="frame-0" class="frame">
+                        <canvas style="width: 98%; height: 98%;"></canvas>
+                        <div class="mov hov"></div>
+                        <div class="del hov"></div>
+                        <div class="copy hov"></div>
+                        <div class="lab">1</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="center">
+            <div class="canvas">
+                <canvas id="canvas"></canvas>
+            </div>
+        </section>
+        <section class="right">
+            <div class="prew" id="prew">
+                <img id="prewimg" style="width: 98%" src="" alt="">
+            </div>
+            <div class="fps">
+                <label id="fps-label" for="fps"></label>
+                <input type="range" id="fps" name="fps" value="1" min="1" max="25" oninput="getFPS(this.value)" onload="getFPS(this.value)">
+                <div id="full-screen" class="fs-mode"></div>
+            </div>
+        </section>
+    </main> 
+    <script src="./pallete/script.js" type="text/javascript"></script>
+</body>
+</html>

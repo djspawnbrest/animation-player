@@ -1,0 +1,514 @@
+body {
+    width: 100vw;
+    font-family: sans-serif;
+}
+
+header {
+    height: 45px;
+    display: grid;
+    border-bottom: 5px solid;
+    border-image: linear-gradient(to bottom, rgb(255, 255, 255), rgb(0,0,0), rgb(255,255,255) ) 10% 0% 10%;
+    grid-template-rows: 50px;
+    grid-template-columns: 50px calc(100vw - 100px) 50px;
+    grid-template-areas: "mb hl ab";
+}
+
+header .header {
+    height: 45px;
+}
+
+.menu-button {
+    cursor: pointer;
+}
+
+.menu-button:hover {
+    background: -webkit-linear-gradient(rgb(228, 232, 236), rgb(255, 255, 255));
+    background: -moz-linear-gradient(rgb(228, 232, 236), rgb(255, 255, 255)); 
+    background: -o-linear-gradient(rgb(228, 232, 236), rgb(255, 255, 255));
+    background: linear-gradient(rgb(228, 232, 236), rgb(255, 255, 255));  
+  
+    -webkit-transition: background 1s ease-out;  
+    -moz-transition: background 1s ease-out;  
+    -o-transition: background 1s ease-out;  
+    transition: background 1s ease-out;  
+
+    background-size:1px 200px;  
+    border-radius: 4px;
+}
+
+.menu-button-hamburger {
+    grid-area: mb;
+    padding-top: 10px;
+}
+
+.menu-button-kebab {
+    grid-area: ab;
+    padding-top: 8px;
+}
+
+.hamburger {
+    width: 20px;
+    height: 3px;
+    background-color: rgb(117,117,117,1);
+    margin: 4px 15px;
+}
+
+.kebab {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: rgb(117,117,117,1);
+    margin: 3px 23px;
+}
+
+.headline {
+    grid-area: hl;
+}
+
+.headline h1 {
+    font-size: 1.4em;
+    margin: 11px 5px;
+    padding-left: 10px;
+}
+
+main {
+    min-height: calc(100vh - 50px);
+    display: grid;
+    grid-template-columns: 3fr 10fr 3fr;
+    grid-template-areas: "lft ctr rgt";
+}
+
+.left {
+    grid-area: lft;
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: "tlsb frmsb";
+}
+
+.center {
+    grid-area: ctr;
+    display: grid;
+}
+
+.right {
+    grid-area: rgt;
+}
+
+.canvas {
+    margin: 15px 15px;
+}
+
+.center canvas {
+    cursor: crosshair;
+}
+
+.prew {
+    margin: 15px 15px;
+    border: 1px solid transparent;
+    border-image: linear-gradient(#e4e4e4, #ccc);
+    border-image-slice: 1;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.5), 0 3px 6px -3px rgba(0,0,0,0.25);
+}
+
+.prew:fullscreen {
+    background-color: white;
+    height: 100%;
+}
+
+.prew:fullscreen img{
+    background-color: white;
+    height: 100%;
+}
+
+.fs-mode {
+    width: 18px;
+    height: 18px;
+    border: 2px solid transparent;
+    border-image: linear-gradient(#e4e4e4, #ccc);
+    border-image-slice: 1;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.5), 0 3px 6px -3px rgba(0,0,0,0.25);
+    background-color: grey;
+    opacity: 0.8;
+    background-image: url(https://www.piskelapp.com/p/img/icons.png?20181125);
+    background-position: -295px -183px;
+    cursor: pointer;
+}
+
+.fps {
+    margin: 15px 15px;
+    display: flex;
+}
+
+.fps > * {
+    margin-right: 15px;
+}
+
+#canvas {
+    border: 1px solid transparent;
+    border-image: linear-gradient(#e4e4e4, #ccc);
+    border-image-slice: 1;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.5), 0 3px 6px -3px rgba(0,0,0,0.25);
+}
+
+.tools-box {
+    grid-area: tlsb;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.5fr 1.5fr 1fr;
+    grid-template-areas: "."
+                         "tls"
+                         ".";
+}
+
+.frames-box {
+    grid-area: frmsb;
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-rows: 1fr 30fr 1fr;
+    grid-template-areas: ". . ."
+                         ". frms ."
+                         ". . .";
+}
+
+.tools {
+    grid-area: tls;
+    border: 1px solid transparent;
+    border-image: linear-gradient(#e4e4e4, #ccc);
+    border-image-slice: 1;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.5), 0 3px 6px -3px rgba(0,0,0,0.25);
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    width: 50px;
+    height: 250px;
+}
+
+.paints {
+    border-bottom: 1px solid;
+    border-image: linear-gradient(to bottom, rgb(255, 255, 255), rgb(0,0,0), rgb(255,255,255) ) 10% 0% 10%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+
+.movements {
+    border-top: 1px solid;
+    border-image: linear-gradient(to bottom, rgb(255, 255, 255), rgb(0,0,0), rgb(255,255,255) ) 10% 0% 10%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+
+.frames {
+    grid-area: frms;
+    border: 1px solid transparent;
+    border-image: linear-gradient(#e4e4e4, #ccc);
+    border-image-slice: 1;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.5), 0 3px 6px -3px rgba(0,0,0,0.25);
+    padding: 10px 10px;
+}
+
+.frame {
+    width: 150px;
+    height: 150px;
+    border: 1px solid transparent;
+    border-image: linear-gradient(#e4e4e4, #ccc);
+    border-image-slice: 1;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.5), 0 3px 6px -3px rgba(0,0,0,0.25);
+    margin: 10px;
+    position: relative;
+}
+
+.new-frame {
+    width: 150px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    margin-top: 8px;
+    padding: 6px 0;
+    overflow: hidden;
+    font-size: 23px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-image: linear-gradient(#e4e4e4, #ccc);
+    border-image-slice: 1;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.5), 0 3px 6px -3px rgba(0,0,0,0.25);
+    margin: 10px;
+    position: relative;
+}
+
+.add-frame-icon {
+    margin: 3px;
+    float: left;
+    background-color: black;
+    opacity: 0.5;
+    flex-shrink: 0;
+    background-image: url(https://www.piskelapp.com/p/img/icons.png?20181125);
+    background-position: -274px -157px;
+    width: 26px;
+    height: 26px;
+}
+
+.add-frame-label {
+    font-size: 23px;
+    cursor: pointer;
+    margin-left: 3px;
+}
+
+.frame canvas {
+    position: relative;
+    z-index: 1;
+}
+
+.frame .mov {
+    width: 30px;
+    height: 30px;
+    background-image: url(https://www.piskelapp.com/p/img/icons.png?20181125);
+    background-position: -274px -46px;
+    background-color: grey;
+    z-index: 10;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    opacity: 0.8;
+    cursor: move;
+}
+
+.frame .del {
+    width: 30px;
+    height: 30px;
+    background-image: url(https://www.piskelapp.com/p/img/icons.png?20181125);
+    background-position: -274px -106px;
+    background-color: grey;
+    z-index: 10;
+    top: 0;
+    right: 0;
+    position: absolute;
+    opacity: 0.8;
+    cursor: pointer;
+    display: none;
+}
+
+.frame .copy {
+    width: 30px;
+    height: 30px;
+    background-image: url(https://www.piskelapp.com/p/img/icons.png?20181125);
+    background-position: -274px -76px;
+    background-color: grey;
+    z-index: 10;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.frame .lab {
+    opacity: 0.8;
+    border-bottom-right-radius: 3px;
+    top: 0;
+    left: 0;
+    font-size: 14px;
+    line-height: 30px;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    cursor: default;
+    background-color: grey;
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    z-index: 10;
+}
+
+.hov {
+    display: none;
+}
+
+.frame:hover .hov {
+    display: block;
+}
+
+.sel-frame {
+    border: 6px solid green;
+    border-image: none;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.5), 0 3px 6px -3px rgba(0,0,0,0.25);
+    margin: 5px;
+}
+
+.color-state {
+    border-bottom: 1px solid;
+    border-image: linear-gradient(to bottom, rgb(255, 255, 255), rgb(0,0,0), rgb(255,255,255) ) 10% 0% 10%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+
+.colors {
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+    border-image: linear-gradient(to bottom, rgb(255, 255, 255), rgb(0,0,0), rgb(255,255,255) ) 10% 0% 10%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+
+.tool {
+    cursor: pointer;
+    vertical-align: middle;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    align-items: center;
+}
+
+.tool:hover {
+    background: -webkit-linear-gradient(rgb(228, 232, 236), rgb(255, 255, 255));
+    background: -moz-linear-gradient(rgb(228, 232, 236), rgb(255, 255, 255)); 
+    background: -o-linear-gradient(rgb(228, 232, 236), rgb(255, 255, 255));
+    background: linear-gradient(rgb(228, 232, 236), rgb(255, 255, 255));  
+  
+    -webkit-transition: background 1s ease-out;  
+    -moz-transition: background 1s ease-out;  
+    -o-transition: background 1s ease-out;  
+    transition: background 1s ease-out;  
+
+    background-size:1px 200px;
+}
+
+.tool-ch {
+    cursor: pointer;
+    vertical-align: middle;
+    display: grid;
+    grid-template-columns: 2fr 5fr;
+    grid-template-rows: 1fr;
+    align-items: center;
+}
+
+.tool-chosen {
+    background: -webkit-linear-gradient(rgb(40, 214, 214), rgb(3, 110, 117));
+    background: -moz-linear-gradient(rgb(40, 214, 214), rgb(3, 110, 117));  
+    background: -o-linear-gradient(rgb(40, 214, 214), rgb(3, 110, 117)); 
+    background: linear-gradient(rgb(40, 214, 214), rgb(3, 110, 117));  
+  
+    -webkit-transition: background 1s ease-out;  
+    -moz-transition: background 1s ease-out;  
+    -o-transition: background 1s ease-out;  
+    transition: background 1s ease-out;  
+
+    background-size:1px 200px;
+}
+
+.label {
+    margin-left: 5px;
+    color: rgb(117,117,117,1);
+}
+
+.label span {
+    float: right;
+    margin-right: 10%;
+}
+
+.icon {
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+    width: 100%;
+    height: 100%;
+    background-position: center;
+}
+
+.buck {
+    background-image: url(../assets/bucket.png);
+}
+
+.pip {
+    background-image: url(../assets/pipette.png);
+}
+
+.mov {
+    background-image: url(../assets/move.png);
+}
+
+.trns {
+    background-image: url(../assets/transform.png);
+}
+
+.col {
+    margin-left: 15px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 1px solid black;
+}
+
+.cur-color {
+    vertical-align: middle;
+    display: grid;
+    grid-template-columns: 2fr 5fr;
+    grid-template-rows: 1fr;
+    align-items: center;
+}
+
+.red-col {
+    background-color: rgb(247,65,65,1);
+}
+
+.blue-col {
+    background-color: rgb(65,182,247,1);
+}
+
+.custom-pallete {
+    padding: 4px 4px;
+    border-top: 1px solid;
+    border-image: linear-gradient(to bottom, rgb(255, 255, 255), rgb(0,0,0), rgb(255,255,255) ) 10% 0% 10%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
+}
+
+.custom-pallete .pal-col {
+    width: 100%;
+    height: 100%;
+    border: 1px solid rgba(0,0,0,0.90);
+}
+
+.pal-col:nth-child(1) {
+    background-color: red;
+}
+
+.pal-col:nth-child(2) {
+    background-color: orange;
+}
+
+.pal-col:nth-child(3) {
+    background-color: yellow;
+}
+
+.pal-col:nth-child(4) {
+    background-color: green;
+}
+
+.pal-col:nth-child(5) {
+    background-color: skyblue;
+}
+
+.pal-col:nth-child(6) {
+    background-color: blue;
+}
+
+.pal-col:nth-child(7) {
+    background-color: violet;
+}
+
+.pal-col:nth-child(8) {
+    background-color: white;
+}
+
+.pal-col:nth-child(9) {
+    background-color: grey;
+}
+
+.pal-col:nth-child(10) {
+    background-color: black;
+}
